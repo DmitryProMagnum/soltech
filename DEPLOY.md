@@ -7,13 +7,13 @@ The site is a **static site** (HTML + CSS + JS + media) — it can go on any sta
 ## 1. Before you deploy — 3 quick edits
 
 ### a) Set your real domain
-Everything currently uses the placeholder **`https://soltech.ae`**. Find-and-replace it with your real domain in:
+Everything currently uses the placeholder **`https://soltech.solutions`**. Find-and-replace it with your real domain in:
 
 - `index.html` — canonical link, `og:url`, `og:image`, `twitter:image`, and both JSON-LD blocks
 - `sitemap.xml`
 - `robots.txt`
 
-(If your domain *is* `soltech.ae`, nothing to change.)
+(If your domain *is* `soltech.solutions`, nothing to change.)
 
 ### b) Don't upload the 32 MB source video
 The site plays **`solar-1600.mp4` (1.9 MB)** and **`solar.webm` (1.6 MB)**. The original **`solar.mp4` (32 MB)** is only a source file — it's already in `.gitignore`. If you deploy by drag-and-drop, **delete `solar.mp4` first** so you don't upload 32 MB for nothing.
