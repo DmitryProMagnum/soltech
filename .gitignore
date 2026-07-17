@@ -1,0 +1,13 @@
+# Uncompressed source video (32 MB) — the site serves solar-1600.mp4 + solar.webm.
+solar.mp4
+
+# Original hi-res upload duplicates at repo root (already recompressed into assets/img/).
+/*.jpg
+
+# Local tooling / editor
+.claude/
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db

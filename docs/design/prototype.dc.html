@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F5F1;color:#16345E;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#16345E;text-decoration:none}
+a:hover{color:#F08018}
+::selection{background:#F08018;color:#fff}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+input[type="range"]{-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;outline:none;cursor:pointer;width:100%}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid #F08018;box-shadow:0 2px 12px rgba(0,0,0,.4);cursor:grab}
+input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #F08018;box-shadow:0 2px 12px rgba(0,0,0,.4);cursor:grab}
+</style>
+</helmet>
+<div data-screen-label="SolTech Home" style="font-family:'Schibsted Grotesk',sans-serif;background:#F6F5F1;min-height:100vh">
+
+<header style="position:sticky;top:0;z-index:60;background:rgba(246,245,241,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #E5E2D9">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#top" style="display:flex;align-items:baseline;gap:2px;font-weight:800;font-size:22px;letter-spacing:.04em;color:#16345E">S<span style="position:relative;display:inline-block">O<span style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:.26em;height:.26em;background:#F08018;border-radius:50%"></span></span>LTECH</a>
+    <nav style="display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500">
+      <a href="#calc">Calculator</a>
+      <a href="#compare">Villas</a>
+      <a href="#models">Business</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#calc" style="background:#16345E;color:#fff;padding:11px 22px;border-radius:10px;font-size:14.5px;font-weight:600" style-hover="background:#F08018;color:#fff">Calculate my savings</a>
+  </div>
+</header>
+
+<section id="top" style="max-width:1200px;margin:0 auto;padding:104px 32px 110px;background-image:radial-gradient(rgba(22,52,94,.08) 1px, transparent 1px);background-size:26px 26px">
+  <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#5C6B80;animation:fadeUp .8s cubic-bezier(.16,.7,.2,1) both">
+        <span style="width:8px;height:8px;background:#F08018;display:inline-block"></span>SHAMS DUBAI · GRID-TIED SOLAR · DUBAI, UAE
+      </div>
+      <h1 style="margin:22px 0 0;font-size:60px;line-height:1.04;font-weight:800;letter-spacing:-.022em;text-wrap:balance;animation:fadeUp .8s cubic-bezier(.16,.7,.2,1) .1s both">Stop paying <span style="color:#F08018;white-space:nowrap">0.46 AED</span> per kilowatt&#8209;hour.</h1>
+      <p style="margin:24px 0 0;font-size:19px;line-height:1.55;color:#5C6B80;max-width:480px;text-wrap:pretty;animation:fadeUp .8s cubic-bezier(.16,.7,.2,1) .2s both">Generate your own power at a fraction of the cost — and cut your DEWA bill for the next 25 years.</p>
+      <div style="display:flex;gap:14px;margin-top:36px;animation:fadeUp .8s cubic-bezier(.16,.7,.2,1) .3s both">
+        <a href="#calc" style="background:#16345E;color:#fff;padding:16px 28px;border-radius:10px;font-size:16px;font-weight:600" style-hover="background:#0E2440;color:#fff;transform:translateY(-2px)">Calculate my savings</a>
+        <a href="https://wa.me/{{ waNum }}?text=Hi%20SolTech%2C%20I%27d%20like%20a%20free%20solar%20assessment" style="border:1.5px solid #C9CFD8;color:#16345E;padding:16px 28px;border-radius:10px;font-size:16px;font-weight:600;background:transparent" style-hover="border-color:#F08018;color:#F08018">Get a free assessment</a>
+      </div>
+      <div style="margin-top:32px;font-size:13.5px;color:#8B96A5;animation:fadeUp .8s cubic-bezier(.16,.7,.2,1) .4s both">DEWA-eligible equipment only · One team owns your project · Conservative estimates</div>
+    </div>
+    <div style="position:relative;padding:8px 0">
+      <div style="background:#0E2440;border-radius:18px;padding:30px 34px;box-shadow:0 24px 60px -24px rgba(14,36,64,.45);animation:fadeUp .9s cubic-bezier(.16,.7,.2,1) .25s both">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55)">DEWA GRID · TODAY</div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-top:10px">
+          <span ref="{{ refDewa }}" style="font-family:'IBM Plex Mono',monospace;font-size:64px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums">0.46</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:rgba(255,255,255,.6)">AED / kWh</span>
+        </div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.22);font-size:13px;color:rgba(255,255,255,.55)">Top residential slab, incl. fuel surcharge &amp; VAT</div>
+      </div>
+      <div style="position:absolute;right:22px;top:46%;z-index:2;background:#F08018;color:#fff;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:18px;width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);box-shadow:0 12px 28px -8px rgba(240,128,24,.55);animation:fadeUp .9s cubic-bezier(.16,.7,.2,1) .55s both">−76%</div>
+      <div style="background:#fff;border:1.5px solid #F08018;border-radius:18px;padding:30px 34px;margin:-16px 0 0 44px;box-shadow:0 24px 60px -28px rgba(22,52,94,.28);animation:fadeUp .9s cubic-bezier(.16,.7,.2,1) .4s both">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#F08018">YOUR SOLAR · 25 YEARS</div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-top:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:64px;font-weight:600;color:#F08018;font-variant-numeric:tabular-nums">~<span ref="{{ refSolar }}">0.11</span></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:#8B96A5">AED / kWh</span>
+        </div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px dashed #E5E2D9;font-size:13px;color:#8B96A5">Levelised cost of your own generation · illustrative model</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="calc" style="background:#0E2440;padding:100px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px">
+    <div data-reveal="" style="max-width:640px">
+      <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#F08018"><span style="width:8px;height:8px;background:#F08018;display:inline-block"></span>SAVINGS CALCULATOR</div>
+      <h2 style="margin:18px 0 0;font-size:42px;font-weight:800;letter-spacing:-.02em;color:#fff;text-wrap:balance">What would your kilowatt&#8209;hour cost?</h2>
+      <p style="margin:16px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.6)">Move the slider to your average monthly DEWA bill. Estimates recalculate instantly — conservatively.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px;align-items:stretch">
+      <div data-reveal="" data-reveal-delay="80" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:38px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.5)">YOUR AVERAGE MONTHLY DEWA BILL</div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin-top:12px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:58px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums">{{ billFmt }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:rgba(255,255,255,.5)">AED / month</span>
+          </div>
+        </div>
+        <div>
+          <input type="range" min="500" max="20000" step="100" value="{{ bill }}" onChange="{{ onBill }}" onInput="{{ onBill }}" style="background:{{ sliderBg }}">
+          <div style="display:flex;justify-content:space-between;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.4)"><span>500</span><span>20,000</span></div>
+        </div>
+        <sc-if value="{{ lowBill }}" hint-placeholder-val="{{ false }}">
+          <div style="background:rgba(240,128,24,.12);border:1px solid rgba(240,128,24,.4);border-radius:12px;padding:16px 18px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.85)">Honestly: below ~1,500 AED/month the economics are weaker. Solar can still work — leave your number and we'll tell you straight whether it's worth it.</div>
+        </sc-if>
+        <div>
+          <a href="https://wa.me/{{ waNum }}?text=Hi%20SolTech%2C%20please%20send%20my%20full%20savings%20report.%20My%20monthly%20bill%20is%20about%20{{ bill }}%20AED" style="display:block;text-align:center;background:#F08018;color:#fff;padding:17px 28px;border-radius:10px;font-size:16px;font-weight:700" style-hover="background:#FF9633;color:#fff;transform:translateY(-2px)">Get my full report on WhatsApp</a>
+          <div style="text-align:center;margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.4)">Your phone number is the only required field</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-rows:1fr 1fr 1fr;gap:16px">
+        <div data-reveal="" data-reveal-delay="160" style="background:#fff;border-radius:18px;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8B96A5">YOUR PRICE PER KWH</div>
+            <div style="margin-top:6px;font-size:14px;color:#5C6B80">vs <span style="font-variant-numeric:tabular-nums">{{ rateFmt }}</span> AED from DEWA — <span style="color:#F08018;font-weight:600">{{ cutFmt }}% cheaper</span></div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:44px;font-weight:600;color:#16345E;font-variant-numeric:tabular-nums;white-space:nowrap">~{{ solarRateFmt }}</div>
+        </div>
+        <div data-reveal="" data-reveal-delay="240" style="background:#fff;border-radius:18px;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8B96A5">ESTIMATED SAVINGS</div>
+            <div style="margin-top:6px;font-size:14px;color:#5C6B80">covering ~85% of your consumption</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:44px;font-weight:600;color:#F08018;font-variant-numeric:tabular-nums;white-space:nowrap">{{ saveFmt }}<span style="font-size:16px;color:#8B96A5"> AED/yr</span></div>
+        </div>
+        <div data-reveal="" data-reveal-delay="320" style="background:#fff;border-radius:18px;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8B96A5">PAYBACK PERIOD</div>
+            <div style="margin-top:6px;font-size:14px;color:#5C6B80">then the power is effectively yours</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:44px;font-weight:600;color:#16345E;font-variant-numeric:tabular-nums;white-space:nowrap">{{ paybackFmt }}<span style="font-size:16px;color:#8B96A5"> years</span></div>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="" style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.4)">Pre-assessment estimate based on our published <a href="#faq" style="color:rgba(255,255,255,.65);text-decoration:underline">calculation methodology</a>. Final numbers follow a free engineering assessment of your roof.</div>
+  </div>
+</section>
+
+<section id="compare" style="background:#fff;padding:110px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px">
+    <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+      <div style="max-width:560px">
+        <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#5C6B80"><span style="width:8px;height:8px;background:#F08018;display:inline-block"></span>25-YEAR VIEW</div>
+        <h2 style="margin:18px 0 0;font-size:42px;font-weight:800;letter-spacing:-.02em;text-wrap:balance">Keep paying DEWA — or stop.</h2>
+      </div>
+      <div style="display:flex;gap:24px;font-size:14px;color:#5C6B80;padding-bottom:6px">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:3px;background:#16345E;display:inline-block;border-radius:2px"></span>Keep paying DEWA</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:3px;background:#F08018;display:inline-block;border-radius:2px"></span>Go solar</span>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="120" style="margin-top:44px;border:1px solid #ECEAE2;border-radius:18px;padding:36px 28px 20px;background:linear-gradient(180deg,#FDFDFB,#F9F8F4)">
+      <svg viewBox="0 0 820 400" style="width:100%;height:auto;display:block" role="img" aria-label="Cumulative 25-year cost: DEWA vs solar">
+        <g stroke="#E8E5DC" stroke-width="1">
+          <line x1="70" y1="350" x2="790" y2="350"></line>
+          <line x1="70" y1="270" x2="790" y2="270"></line>
+          <line x1="70" y1="190" x2="790" y2="190"></line>
+          <line x1="70" y1="110" x2="790" y2="110"></line>
+          <line x1="70" y1="30" x2="790" y2="30"></line>
+        </g>
+        <g fill="#8B96A5" font-size="12" font-family="IBM Plex Mono, monospace">
+          <text x="62" y="354" text-anchor="end">0</text>
+          <text x="62" y="274" text-anchor="end">250k</text>
+          <text x="62" y="194" text-anchor="end">500k</text>
+          <text x="62" y="114" text-anchor="end">750k</text>
+          <text x="62" y="34" text-anchor="end">1M</text>
+          <text x="70" y="374" text-anchor="middle">Year 0</text>
+          <text x="214" y="374" text-anchor="middle">5</text>
+          <text x="358" y="374" text-anchor="middle">10</text>
+          <text x="502" y="374" text-anchor="middle">15</text>
+          <text x="646" y="374" text-anchor="middle">20</text>
+          <text x="790" y="374" text-anchor="middle">25</text>
+        </g>
+        <polygon points="230,286 790,62 790,230" fill="rgba(240,128,24,.10)" style="opacity:0;animation:fadeIn 1s ease 1.2s forwards;animation-play-state:paused" data-anim=""></polygon>
+        <text x="700" y="165" text-anchor="middle" fill="#B06A1E" font-size="13" font-family="IBM Plex Mono, monospace" style="opacity:0;animation:fadeIn 1s ease 1.5s forwards;animation-play-state:paused" data-anim="">≈ 525,000 AED kept</text>
+        <polyline points="70,350 790,62" fill="none" stroke="#16345E" stroke-width="3" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:drawLine 1.6s cubic-bezier(.4,0,.2,1) .2s forwards;animation-play-state:paused" data-anim=""></polyline>
+        <polyline points="70,302 790,230" fill="none" stroke="#F08018" stroke-width="3" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:drawLine 1.6s cubic-bezier(.4,0,.2,1) .45s forwards;animation-play-state:paused" data-anim=""></polyline>
+        <g style="opacity:0;animation:fadeIn .8s ease 1.7s forwards;animation-play-state:paused" data-anim="">
+          <circle cx="230" cy="286" r="6" fill="#fff" stroke="#F08018" stroke-width="3"></circle>
+          <text x="230" y="318" text-anchor="middle" fill="#5C6B80" font-size="13" font-family="IBM Plex Mono, monospace">break-even ≈ year 6</text>
+        </g>
+        <g font-size="13" font-family="IBM Plex Mono, monospace" style="opacity:0;animation:fadeIn .8s ease 1.9s forwards;animation-play-state:paused" data-anim="">
+          <text x="784" y="52" text-anchor="end" fill="#16345E" font-weight="600">DEWA · ~900,000 AED</text>
+          <text x="784" y="256" text-anchor="end" fill="#F08018" font-weight="600">Solar · ~375,000 AED</text>
+        </g>
+      </svg>
+      <div style="padding:18px 8px 8px;font-size:13px;color:#8B96A5">Illustrative model: villa, ~3,000 AED/month bill, 12 kWp grid-tied system under Shams Dubai. Cumulative cost of electricity, tariff escalation assumed 0%.</div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:96px 32px">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:36px">
+    <div data-reveal="" style="border-top:2px solid #16345E;padding-top:22px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F08018">01</div>
+      <div style="margin-top:10px;font-size:18px;font-weight:700">Shams Dubai programme</div>
+      <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#5C6B80">Every system is designed and filed under DEWA's official grid-connection scheme.</p>
+    </div>
+    <div data-reveal="" data-reveal-delay="90" style="border-top:2px solid #16345E;padding-top:22px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F08018">02</div>
+      <div style="margin-top:10px;font-size:18px;font-weight:700">DEWA-eligible equipment only</div>
+      <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#5C6B80">We install only panels and inverters listed in DEWA's Eligible Equipment registry.</p>
+    </div>
+    <div data-reveal="" data-reveal-delay="180" style="border-top:2px solid #16345E;padding-top:22px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F08018">03</div>
+      <div style="margin-top:10px;font-size:18px;font-weight:700">In-house engineering</div>
+      <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#5C6B80">One team owns your project, your numbers and your warranty. No subcontractor roulette.</p>
+    </div>
+    <div data-reveal="" data-reveal-delay="270" style="border-top:2px solid #16345E;padding-top:22px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F08018">04</div>
+      <div style="margin-top:10px;font-size:18px;font-weight:700">Open methodology</div>
+      <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#5C6B80">Every assumption behind our estimates is published. We calculate conservatively.</p>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:#fff;border-top:1px solid #ECEAE2;border-bottom:1px solid #ECEAE2;padding:100px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px">
+    <div data-reveal="">
+      <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#5C6B80"><span style="width:8px;height:8px;background:#F08018;display:inline-block"></span>THE JOURNEY</div>
+      <h2 style="margin:18px 0 0;font-size:42px;font-weight:800;letter-spacing:-.02em;max-width:640px;text-wrap:balance">From first calculation to 25 years of savings.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:20px;margin-top:56px">
+      <div data-reveal="" style="border-top:2px solid #E5E2D9;padding-top:18px;position:relative"><span style="position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:#F08018"></span><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B96A5">01 · 2 MIN</div><div style="margin-top:8px;font-size:15.5px;font-weight:700;line-height:1.3">Calculate</div></div>
+      <div data-reveal="" data-reveal-delay="70" style="border-top:2px solid #E5E2D9;padding-top:18px;position:relative"><span style="position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:#16345E"></span><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B96A5">02 · ≤ 3 DAYS</div><div style="margin-top:8px;font-size:15.5px;font-weight:700;line-height:1.3">Engineering assessment</div></div>
+      <div data-reveal="" data-reveal-delay="140" style="border-top:2px solid #E5E2D9;padding-top:18px;position:relative"><span style="position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:#16345E"></span><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B96A5">03 · 24 H</div><div style="margin-top:8px;font-size:15.5px;font-weight:700;line-height:1.3">Financial proposal</div></div>
+      <div data-reveal="" data-reveal-delay="210" style="border-top:2px solid #E5E2D9;padding-top:18px;position:relative"><span style="position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:#16345E"></span><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B96A5">04 · FILED ≤ 5 DAYS</div><div style="margin-top:8px;font-size:15.5px;font-weight:700;line-height:1.3">DEWA approval</div></div>
+      <div data-reveal="" data-reveal-delay="280" style="border-top:2px solid #E5E2D9;padding-top:18px;position:relative"><span style="position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:#16345E"></span><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B96A5">05 · 2–7 DAYS</div><div style="margin-top:8px;font-size:15.5px;font-weight:700;line-height:1.3">Installation</div></div>
+      <div data-reveal="" data-reveal-delay="350" style="border-top:2px solid #E5E2D9;padding-top:18px;position:relative"><span style="position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:#16345E"></span><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8B96A5">06 · DAY ONE</div><div style="margin-top:8px;font-size:15.5px;font-weight:700;line-height:1.3">Monitoring</div></div>
+      <div data-reveal="" data-reveal-delay="420" style="border-top:2px solid #F08018;padding-top:18px;position:relative"><span style="position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:#F08018"></span><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F08018">07 · ONGOING</div><div style="margin-top:8px;font-size:15.5px;font-weight:700;line-height:1.3;color:#F08018">25 years of savings</div></div>
+    </div>
+    <div data-reveal="" style="margin-top:44px;font-size:14px;color:#8B96A5">A typical villa goes live in 45–60 days end to end. Most of that is DEWA process time — <a href="#faq" style="text-decoration:underline">what can extend it</a>.</div>
+  </div>
+</section>
+
+<section id="models" style="max-width:1200px;margin:0 auto;padding:110px 32px">
+  <div data-reveal="">
+    <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#5C6B80"><span style="width:8px;height:8px;background:#F08018;display:inline-block"></span>MODEL SCENARIOS</div>
+    <h2 style="margin:18px 0 0;font-size:42px;font-weight:800;letter-spacing:-.02em;max-width:620px;text-wrap:balance">Two roofs, one logic.</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px">
+    <div data-reveal="" data-reveal-delay="80" style="background:#fff;border:1px solid #ECEAE2;border-radius:18px;padding:38px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+        <div style="font-size:24px;font-weight:800">Villa · 12 kWp</div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#8B96A5;border:1px solid #E5E2D9;border-radius:999px;padding:6px 12px">ILLUSTRATIVE MODEL</span>
+      </div>
+      <div style="margin-top:26px;display:grid;gap:0">
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed #E5E2D9;font-size:15px"><span style="color:#5C6B80">Estimated production</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-variant-numeric:tabular-nums">21,000 kWh / yr</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed #E5E2D9;font-size:15px"><span style="color:#5C6B80">Bill offset</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600">~85%</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed #E5E2D9;font-size:15px"><span style="color:#5C6B80">Payback</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600">~5 years</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed #E5E2D9;font-size:15px"><span style="color:#5C6B80">25-year net savings</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#F08018;font-variant-numeric:tabular-nums">~180,000 AED</span></div>
+      </div>
+      <a href="#calc" style="display:inline-block;margin-top:26px;font-size:15px;font-weight:600;color:#16345E;border-bottom:2px solid #F08018;padding-bottom:2px">Run my villa's numbers →</a>
+    </div>
+    <div data-reveal="" data-reveal-delay="160" style="background:#0E2440;border-radius:18px;padding:38px;color:#fff">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+        <div style="font-size:24px;font-weight:800">Warehouse · 300 kWp</div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px">ILLUSTRATIVE MODEL</span>
+      </div>
+      <div style="margin-top:26px">
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed rgba(255,255,255,.2);font-size:15px"><span style="color:rgba(255,255,255,.6)">Estimated production</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-variant-numeric:tabular-nums">525,000 kWh / yr</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed rgba(255,255,255,.2);font-size:15px"><span style="color:rgba(255,255,255,.6)">Project IRR</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600">~19%</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed rgba(255,255,255,.2);font-size:15px"><span style="color:rgba(255,255,255,.6)">Payback</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600">~4.5 years</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px dashed rgba(255,255,255,.2);font-size:15px"><span style="color:rgba(255,255,255,.6)">25-year net savings</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#F08018;font-variant-numeric:tabular-nums">~3.9M AED</span></div>
+      </div>
+      <a href="https://wa.me/{{ waNum }}?text=Hi%20SolTech%2C%20I%27d%20like%20to%20book%20an%20engineering%20assessment%20for%20a%20commercial%20site" style="display:inline-block;margin-top:26px;font-size:15px;font-weight:600;color:#fff;border-bottom:2px solid #F08018;padding-bottom:2px" style-hover="color:#F08018">Book an engineering assessment →</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff;border-top:1px solid #ECEAE2;padding:100px 0">
+  <div style="max-width:820px;margin:0 auto;padding:0 32px">
+    <div data-reveal="" style="text-align:center">
+      <div style="display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#5C6B80"><span style="width:8px;height:8px;background:#F08018;display:inline-block"></span>STRAIGHT ANSWERS</div>
+      <h2 style="margin:18px 0 0;font-size:42px;font-weight:800;letter-spacing:-.02em">Questions people actually ask.</h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="margin-top:48px;display:flex;flex-direction:column">
+      <div style="border-top:1px solid #ECEAE2">
+        <button onClick="{{ t0 }}" style="all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;padding:24px 4px;cursor:pointer;font-family:'Schibsted Grotesk',sans-serif;font-size:18px;font-weight:700;color:#16345E">What happens if I sell my villa?<span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F08018;transition:transform .35s;transform:{{ r0 }};flex-shrink:0">+</span></button>
+        <div style="display:grid;grid-template-rows:{{ f0 }};transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden"><p style="margin:0;padding:0 4px 26px;font-size:15.5px;line-height:1.65;color:#5C6B80;max-width:640px">The system is part of the property and transfers to the buyer — a roof that generates power at ~0.11 AED/kWh is a selling point. Accumulated DEWA credits stay with the account and do not transfer.</p></div></div>
+      </div>
+      <div style="border-top:1px solid #ECEAE2">
+        <button onClick="{{ t1 }}" style="all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;padding:24px 4px;cursor:pointer;font-family:'Schibsted Grotesk',sans-serif;font-size:18px;font-weight:700;color:#16345E">Will I have power during a grid outage?<span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F08018;transition:transform .35s;transform:{{ r1 }};flex-shrink:0">+</span></button>
+        <div style="display:grid;grid-template-rows:{{ f1 }};transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden"><p style="margin:0;padding:0 4px 26px;font-size:15.5px;line-height:1.65;color:#5C6B80;max-width:640px">No. A grid-tied Shams Dubai system shuts down automatically when the grid goes down — that's a safety requirement. Backup power requires battery storage, which is a separate system.</p></div></div>
+      </div>
+      <div style="border-top:1px solid #ECEAE2">
+        <button onClick="{{ t2 }}" style="all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;padding:24px 4px;cursor:pointer;font-family:'Schibsted Grotesk',sans-serif;font-size:18px;font-weight:700;color:#16345E">How long until my system is running?<span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F08018;transition:transform .35s;transform:{{ r2 }};flex-shrink:0">+</span></button>
+        <div style="display:grid;grid-template-rows:{{ f2 }};transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden"><p style="margin:0;padding:0 4px 26px;font-size:15.5px;line-height:1.65;color:#5C6B80;max-width:640px">A typical villa goes from first calculation to switch-on in 45–60 days. Most of that is DEWA process time; the installation itself takes 2–7 days.</p></div></div>
+      </div>
+      <div style="border-top:1px solid #ECEAE2">
+        <button onClick="{{ t3 }}" style="all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;padding:24px 4px;cursor:pointer;font-family:'Schibsted Grotesk',sans-serif;font-size:18px;font-weight:700;color:#16345E">What warranties do I get?<span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F08018;transition:transform .35s;transform:{{ r3 }};flex-shrink:0">+</span></button>
+        <div style="display:grid;grid-template-rows:{{ f3 }};transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden"><p style="margin:0;padding:0 4px 26px;font-size:15.5px;line-height:1.65;color:#5C6B80;max-width:640px">Panels carry a 25-year performance warranty and inverters 5–10 years from the manufacturer. Our workmanship is covered by a single warranty held by us — one responsible party for the whole system.</p></div></div>
+      </div>
+      <div style="border-top:1px solid #ECEAE2;border-bottom:1px solid #ECEAE2">
+        <button onClick="{{ t4 }}" style="all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;padding:24px 4px;cursor:pointer;font-family:'Schibsted Grotesk',sans-serif;font-size:18px;font-weight:700;color:#16345E">How much maintenance does it need?<span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#F08018;transition:transform .35s;transform:{{ r4 }};flex-shrink:0">+</span></button>
+        <div style="display:grid;grid-template-rows:{{ f4 }};transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1)"><div style="overflow:hidden"><p style="margin:0;padding:0 4px 26px;font-size:15.5px;line-height:1.65;color:#5C6B80;max-width:640px">Very little. Occasional panel cleaning and remote monitoring, which we run for you. There are no moving parts.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:#0E2440;padding:110px 0">
+  <div data-reveal="" style="max-width:820px;margin:0 auto;padding:0 32px;text-align:center">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:#F08018">READY WHEN YOU ARE</div>
+    <h2 style="margin:20px 0 0;font-size:48px;font-weight:800;letter-spacing:-.02em;color:#fff;text-wrap:balance">The next 25 years of your power bill are being written now.</h2>
+    <p style="margin:20px auto 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.6);max-width:520px">A pre-calculation takes 24 hours. The engineering assessment is free.</p>
+    <div style="display:flex;gap:14px;justify-content:center;margin-top:38px">
+      <a href="#calc" style="background:#F08018;color:#fff;padding:17px 30px;border-radius:10px;font-size:16px;font-weight:700" style-hover="background:#FF9633;color:#fff;transform:translateY(-2px)">Calculate my savings</a>
+      <a href="https://wa.me/{{ waNum }}?text=Hi%20SolTech%2C%20I%27d%20like%20a%20free%20solar%20assessment" style="border:1.5px solid rgba(255,255,255,.35);color:#fff;padding:17px 30px;border-radius:10px;font-size:16px;font-weight:600" style-hover="border-color:#F08018;color:#F08018">Get a free assessment</a>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#F6F5F1;border-top:1px solid #E5E2D9">
+  <div style="max-width:1200px;margin:0 auto;padding:64px 32px 32px">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:2px;font-weight:800;font-size:20px;letter-spacing:.04em">S<span style="position:relative;display:inline-block">O<span style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:.26em;height:.26em;background:#F08018;border-radius:50%"></span></span>LTECH</div>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#8B96A5;max-width:260px">Solar panel installation under the Shams Dubai programme. Dubai, United Arab Emirates.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8B96A5;margin-bottom:4px">EXPLORE</div>
+        <a href="#calc">Savings calculator</a><a href="#compare">Solar for villas</a><a href="#models">Solar for business</a><a href="#how">How it works</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8B96A5;margin-bottom:4px">LEARN</div>
+        <a href="#faq">Shams Dubai guide</a><a href="#faq">Equipment we install</a><a href="#faq">Calculator methodology</a><a href="#faq">Why SolTech</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8B96A5;margin-bottom:4px">CONTACT</div>
+        <a href="https://wa.me/{{ waNum }}">WhatsApp us</a><a href="mailto:hello@soltech.ae">hello@soltech.ae</a><span style="color:#8B96A5">Sun–Fri, 9:00–18:00 GST</span>
+      </div>
+    </div>
+    <div style="margin-top:56px;padding-top:24px;border-top:1px solid #E5E2D9;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:12.5px;color:#8B96A5">
+      <span>© 2026 SolTech. All rights reserved.</span>
+      <span>All figures shown are illustrative models, not quotes. Final numbers follow an engineering assessment.</span>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showWA }}" hint-placeholder-val="{{ true }}">
+  <a href="https://wa.me/{{ waNum }}?text=Hi%20SolTech" aria-label="Chat on WhatsApp" style="position:fixed;right:26px;bottom:26px;z-index:80;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(0,0,0,.35);animation:waPulse 2.6s ease-out infinite" style-hover="transform:scale(1.08)">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm0 18.1c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29z"></path></svg>
+  </a>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;solarRate&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 0.11, &quot;min&quot;: 0.08, &quot;max&quot;: 0.15, &quot;step&quot;: 0.005, &quot;unit&quot;: &quot; AED/kWh&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Calculator&quot;},
+  &quot;whatsappNumber&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;971500000000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contact&quot;},
+  &quot;showWhatsApp&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Contact&quot;}
+}">
+class Component extends DCLogic {
+  state = { bill: 3000, disp: null, faq: -1 };
+  sr() { return this.props.solarRate ?? 0.11; }
+  compute(bill) {
+    const rate = Math.min(0.46, Math.max(0.38, 0.36 + bill / 40000));
+    const kwh = bill / rate;
+    const save = kwh * 12 * 0.85 * (rate - this.sr());
+    const capex = (kwh * 0.85 / 155) * 4000;
+    return { rate, save, payback: capex / save };
+  }
+  onBill = (e) => {
+    const v = +e.target.value;
+    const from = { ...(this.state.disp || this.compute(this.state.bill)) };
+    const to = this.compute(v);
+    this.setState({ bill: v });
+    cancelAnimationFrame(this._raf);
+    const t0 = performance.now(), dur = 380;
+    const step = (n) => {
+      const p = Math.min(1, (n - t0) / dur), e2 = 1 - Math.pow(1 - p, 3);
+      this.setState({ disp: {
+        rate: from.rate + (to.rate - from.rate) * e2,
+        save: from.save + (to.save - from.save) * e2,
+        payback: from.payback + (to.payback - from.payback) * e2
+      }});
+      if (p < 1) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  };
+  toggle(i) { this.setState(s => ({ faq: s.faq === i ? -1 : i })); }
+  componentDidMount() {
+    const countUp = (el, target, delay) => {
+      if (!el) return;
+      const t0 = performance.now() + delay, dur = 1400;
+      const step = (n) => {
+        const p = Math.min(1, Math.max(0, (n - t0) / dur));
+        el.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(2);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    countUp(this._dewa, 0.46, 500);
+    countUp(this._solar, this.sr(), 750);
+    const els = document.querySelectorAll('[data-reveal]');
+    els.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity .9s cubic-bezier(.16,.7,.2,1), transform .9s cubic-bezier(.16,.7,.2,1)';
+      el.style.transitionDelay = (el.getAttribute('data-reveal-delay') || '0') + 'ms';
+    });
+    this._io = new IntersectionObserver(entries => {
+      entries.forEach(x => {
+        if (!x.isIntersecting) return;
+        const el = x.target;
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.querySelectorAll('[data-anim]').forEach(a => { a.style.animationPlayState = 'running'; });
+        this._io.unobserve(el);
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => this._io.observe(el));
+  }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); cancelAnimationFrame(this._raf); }
+  renderVals() {
+    const { bill, faq } = this.state;
+    const d = this.state.disp || this.compute(bill);
+    const pct = (bill - 500) / 19500 * 100;
+    const vals = {
+      bill, onBill: this.onBill,
+      billFmt: bill.toLocaleString('en-US'),
+      rateFmt: d.rate.toFixed(2),
+      solarRateFmt: this.sr().toFixed(2),
+      cutFmt: Math.round((1 - this.sr() / d.rate) * 100),
+      saveFmt: (Math.round(d.save / 100) * 100).toLocaleString('en-US'),
+      paybackFmt: d.payback.toFixed(1),
+      lowBill: bill < 1500,
+      sliderBg: 'linear-gradient(90deg,#F08018 ' + pct + '%,rgba(255,255,255,.18) ' + pct + '%)',
+      showWA: this.props.showWhatsApp ?? true,
+      waNum: this.props.whatsappNumber ?? '971500000000',
+      refDewa: el => { this._dewa = el; },
+      refSolar: el => { this._solar = el; }
+    };
+    for (let i = 0; i < 5; i++) {
+      vals['f' + i] = faq === i ? '1fr' : '0fr';
+      vals['r' + i] = faq === i ? 'rotate(45deg)' : 'none';
+      vals['t' + i] = () => this.toggle(i);
+    }
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

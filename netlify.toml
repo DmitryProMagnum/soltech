@@ -1,0 +1,45 @@
+# Netlify config for the SolTech static site.
+# Netlify auto-applies Brotli/gzip compression; this file only sets caching.
+[build]
+  publish = "."
+
+# Fingerprint-free assets: cache hard, but let HTML revalidate.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/solar.webm"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/solar-1600.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML: always revalidate so content updates go live immediately.
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Security headers (safe defaults for a static marketing site).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
