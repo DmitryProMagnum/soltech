@@ -1,12 +1,29 @@
 # Cloudflare Pages / Netlify caching + security headers.
-/assets/*
+
+# Fingerprint-stable media & fonts: cache hard for a year.
+/assets/img/*
   Cache-Control: public, max-age=31536000, immutable
-/*.woff2
+/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 /solar.webm
   Cache-Control: public, max-age=31536000, immutable
 /solar-1600.mp4
   Cache-Control: public, max-age=31536000, immutable
+
+# CSS/JS keep the same filename, so they must revalidate (never immutable),
+# otherwise updates never reach browsers. Bump ?v= in index.html on release.
+/assets/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+/assets/js/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# HTML always revalidates.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Security headers for everything.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
