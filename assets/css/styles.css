@@ -277,8 +277,8 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 }
 .hero__content { color: #fff; max-width: 980px; }
 .hero .eyebrow { color: rgba(255,255,255,.8); }
-.hero__title { color: #fff; margin: 14px 0 0; font-size: clamp(38px, 9vw, 120px); line-height: 1.0; letter-spacing: -.03em; overflow-wrap: break-word; }
-.hero__sub { margin: 18px 0 0; max-width: 500px; color: var(--on-dark-70); }
+.hero__title { color: #fff; margin: 14px 0 0; font-size: clamp(48px, 8.2vw, 120px); line-height: 1.0; letter-spacing: -.03em; overflow-wrap: break-word; }
+.hero__sub { margin: 18px 0 0; max-width: 500px; color: var(--on-dark-70); font-size: clamp(15px, 1.55vw, 17.5px); }
 .hero__cta { display: flex; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
 .hero__trust { margin-top: 18px; font-size: 13.5px; color: rgba(255,255,255,.6); }
 
@@ -648,6 +648,9 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 @media (max-width: 560px) {
   :root { --pad: 20px; }
   .hero { padding: 108px 0 72px; min-height: auto; }
+  /* Fill the content width on phones: sized so the widest line ("Installation &")
+     spans the full width down to 320px without overflowing. */
+  .hero__title { font-size: 13.5vw; }
   .pricecard--solar { margin-left: 24px; }
   .badge-cut { width: 64px; height: 64px; font-size: 16px; right: 8px; }
   .journey-grid { grid-template-columns: 1fr 1fr; }
