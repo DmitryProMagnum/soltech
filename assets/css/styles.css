@@ -100,7 +100,7 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   margin: 0;
   background: var(--paper);
@@ -277,7 +277,7 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 }
 .hero__content { color: #fff; max-width: 980px; }
 .hero .eyebrow { color: rgba(255,255,255,.8); }
-.hero__title { color: #fff; margin: 14px 0 0; font-size: clamp(56px, 9vw, 120px); line-height: 1.0; letter-spacing: -.03em; }
+.hero__title { color: #fff; margin: 14px 0 0; font-size: clamp(40px, 9vw, 120px); line-height: 1.0; letter-spacing: -.03em; overflow-wrap: break-word; }
 .hero__sub { margin: 18px 0 0; max-width: 500px; color: var(--on-dark-70); }
 .hero__cta { display: flex; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
 .hero__trust { margin-top: 18px; font-size: 13.5px; color: rgba(255,255,255,.6); }
