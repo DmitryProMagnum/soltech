@@ -429,7 +429,14 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
    ============================================================ */
 .engineers__grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 64px; align-items: center; }
 .engineers__media { position: relative; border-radius: var(--r-card); overflow: hidden; box-shadow: var(--shadow-card); aspect-ratio: 4/5; }
-.engineers__media img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+.engineers__media img { width: 100%; height: 100%; object-fit: cover; }
+/* Parallax: CSS scroll-driven (no JS, no reflow). Static where unsupported / reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .engineers__media img { animation: mediaParallax linear both; animation-timeline: view(); animation-range: cover; }
+    @keyframes mediaParallax { from { transform: translateY(-4.5%) scale(1.1); } to { transform: translateY(4.5%) scale(1.1); } }
+  }
+}
 .engineers__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, transparent 55%, rgba(14,36,64,.35)); }
 .engineers__badge {
   position: absolute; left: 22px; bottom: 22px; z-index: 2;

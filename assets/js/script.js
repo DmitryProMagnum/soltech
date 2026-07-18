@@ -223,31 +223,8 @@
     ho.observe(hero);
   }
 
-  /* ============================================================
-     Lightweight parallax on tagged media (rAF, motion-values only)
-     ============================================================ */
-  if (!reduce) {
-    const parallaxEls = $$("[data-parallax]");
-    if (parallaxEls.length) {
-      let ticking = false;
-      const update = () => {
-        const vh = window.innerHeight;
-        parallaxEls.forEach((el) => {
-          const img = el.querySelector("img") || el;
-          const rect = el.getBoundingClientRect();
-          if (rect.bottom < -100 || rect.top > vh + 100) return;
-          const amt = parseFloat(el.dataset.parallax) || 12;
-          const progress = (rect.top + rect.height / 2 - vh / 2) / vh; // -0.5..0.5-ish
-          img.style.transform = `translate3d(0, ${(-progress * amt).toFixed(2)}px, 0) scale(1.06)`;
-        });
-        ticking = false;
-      };
-      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onScroll, { passive: true });
-      update();
-    }
-  }
+  /* Parallax on the engineers photo is now CSS scroll-driven (see styles.css),
+     which avoids a scroll listener and forced reflows entirely. */
 
   /* ============================================================
      Hero video: honor reduced-motion, a manual pause/play control (WCAG 2.2.2),

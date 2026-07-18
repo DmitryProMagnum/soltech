@@ -1,0 +1,32 @@
+# SolTech
+
+> Solar panel installation and maintenance in Dubai under the DEWA Shams Dubai programme. Homeowners and businesses replace grid electricity (0.38-0.46 AED/kWh) with self-generated solar at roughly 0.11 AED/kWh, cutting the DEWA bill for 25 years. All figures on the site are illustrative models; final numbers follow a free engineering assessment.
+
+## Pages
+
+- [Home](https://soltech.solutions/): Overview, live savings calculator, 25-year cost comparison, model scenarios, and FAQ.
+
+## Key sections
+
+- [Savings calculator](https://soltech.solutions/#calc): Enter an average monthly DEWA bill to estimate price per kWh, yearly savings, and payback period.
+- [25-year comparison](https://soltech.solutions/#compare): Cumulative cost of electricity, staying on DEWA versus going solar.
+- [How it works](https://soltech.solutions/#how): Steps from first calculation to switch-on, typically 45-60 days for a villa.
+- [Model scenarios](https://soltech.solutions/#models): Illustrative villa (12 kWp) and warehouse (300 kWp) examples.
+- [FAQ](https://soltech.solutions/#faq): Selling the property, grid outages, timelines, warranties, and maintenance.
+
+## What SolTech does
+
+- Grid-tied solar installation designed and filed under DEWA's official Shams Dubai scheme.
+- Installs only panels and inverters listed in DEWA's Eligible Equipment registry.
+- In-house engineering: one accountable team owns the design, the DEWA filing, the install, and the warranty.
+- Published, conservative calculation methodology.
+
+## Contact
+
+- WhatsApp and email (hello@soltech.solutions) are available on the site.
+- Service area: Dubai, United Arab Emirates. Hours: Sunday to Friday, 09:00-18:00 GST.
+
+## Notes
+
+- All example figures are illustrative models, not quotes.
+- A grid-tied system without battery storage does not provide backup power during a grid outage.
