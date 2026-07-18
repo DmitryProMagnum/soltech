@@ -426,31 +426,13 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 }
 
 /* ============================================================
-   Engineers — photo split
+   Why SolTech — two-column (copy + accountability list)
    ============================================================ */
-.engineers__grid { display: grid; grid-template-columns: .92fr 1.08fr; column-gap: 64px; row-gap: 0; align-items: center; }
-.engineers__media { grid-column: 1; grid-row: 1 / 3; }
-.engineers__head  { grid-column: 2; grid-row: 1; align-self: end; }
-.engineers__body  { grid-column: 2; grid-row: 2; align-self: start; }
-.engineers__lead  { margin-top: 16px; }
-.engineers__media { position: relative; border-radius: var(--r-card); overflow: hidden; box-shadow: var(--shadow-card); aspect-ratio: 4/5; }
-.engineers__media img { width: 100%; height: 100%; object-fit: cover; }
-/* Parallax: CSS scroll-driven (no JS, no reflow). Static where unsupported / reduced-motion. */
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .engineers__media img { animation: mediaParallax linear both; animation-timeline: view(); animation-range: cover; }
-    @keyframes mediaParallax { from { transform: translateY(-4.5%) scale(1.1); } to { transform: translateY(4.5%) scale(1.1); } }
-  }
-}
-.engineers__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, transparent 55%, rgba(14,36,64,.35)); }
-.engineers__badge {
-  position: absolute; left: 22px; bottom: 22px; z-index: 2;
-  background: rgba(14,36,64,.72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,.16); color: #fff; border-radius: 14px; padding: 16px 20px;
-}
-.engineers__badge .k { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--on-dark-55); }
-.engineers__badge .v { font-family: var(--mono); font-size: 30px; font-weight: 600; margin-top: 4px; }
-.engineers__list { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 0; }
+.engineers__grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px; align-items: center; }
+.engineers__head { max-width: 560px; }
+.engineers__lead { margin-top: 16px; }
+.engineers__cta  { margin-top: 30px; }
+.engineers__list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
 .engineers__list li { display: flex; gap: 14px; padding: 18px 0; border-top: 1px dashed var(--border); font-size: 15.5px; line-height: 1.5; color: var(--muted); }
 .engineers__list li:first-child { border-top: none; }
 .engineers__list b { color: var(--ink); font-weight: 700; display: block; margin-bottom: 3px; }
@@ -614,12 +596,9 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 @media (max-width: 1024px) {
   .hero__grid { grid-template-columns: 1fr; gap: 40px; }
   .pricestack { max-width: 460px; }
-  .engineers__grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 0; }
-  .engineers__media, .engineers__head, .engineers__body { grid-column: 1; grid-row: auto; align-self: auto; }
-  .engineers__head  { order: 1; }
-  .engineers__media { order: 2; margin-top: 22px; }
-  .engineers__body  { order: 3; margin-top: 28px; }
-  .engineers__lead  { margin-top: 0; }
+  .engineers__grid { grid-template-columns: 1fr; align-items: start; }
+  .engineers__head { max-width: none; }
+  .engineers__body { margin-top: 34px; }
   .journey-grid { grid-template-columns: repeat(4, 1fr); gap: 28px 18px; }
   .journey-line, .journey-line__fill, .journey-traveler { display: none; }
   .step { border-top: 2px solid var(--border); padding-top: 18px; }
