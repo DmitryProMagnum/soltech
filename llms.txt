@@ -9,7 +9,7 @@
 - [Equipment we install](https://soltech.solutions/equipment.html): DEWA Eligible-Equipment-listed panel and inverter brands SolTech installs, selected on ROI, heat tolerance and warranty.
 - [DEWA & Shams Dubai guide](https://soltech.solutions/dewa-guide.html): How Shams Dubai, net metering, eligible equipment and grid-tied systems work, plus tariffs and realistic timelines.
 - [Case studies](https://soltech.solutions/case-studies.html): Illustrative before/after savings stories and a 25-year cost-of-ownership comparison.
-- [Maintenance plans](https://soltech.solutions/maintenance.html): Post-connection O&M — 24/7 monitoring, professional cleaning, inspections, warranty management. Plans from AED 49/month (villa), commercial from ~AED 35/kWp/year, priced to cost less than the output they protect.
+- [Maintenance plans](https://soltech.solutions/maintenance.html): Post-connection O&M — fault monitoring is free for life on every install (catches faults, keeps the warranty record). Paid cleaning plans Care from AED 79/month and Complete from AED 159/month (villa); commercial from ~AED 35/kWp/year. Cleaning wins back roughly 2x its cost.
 
 ## Key sections
 
