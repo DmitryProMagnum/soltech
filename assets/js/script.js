@@ -247,18 +247,7 @@
     );
   }
 
-  /* ============================================================
-     Header: dark state while over the hero video
-     ============================================================ */
-  const header = $("#header");
-  const hero = $(".hero");
-  if (header && hero && "IntersectionObserver" in window) {
-    const ho = new IntersectionObserver(
-      ([e]) => header.classList.toggle("is-dark", e.isIntersecting && e.intersectionRatio > 0.1),
-      { threshold: [0, 0.1, 0.5], rootMargin: "-72px 0px 0px 0px" }
-    );
-    ho.observe(hero);
-  }
+  /* Header is a fixed dark-blur bar (styles.css) — no scroll-based state. */
 
   /* Parallax on the engineers photo is now CSS scroll-driven (see styles.css),
      which avoids a scroll listener and forced reflows entirely. */
