@@ -13,8 +13,8 @@
 <link rel="preload" as="image" href="assets/img/panels-turbine-sunset.jpg">
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css?v=10">
-<link rel="stylesheet" href="assets/css/pages.css?v=1">
+<link rel="stylesheet" href="assets/css/styles.css?v=12">
+<link rel="stylesheet" href="assets/css/pages.css?v=2">
 </head>
 <body>
 <a href="#content" class="skip-link">Skip to content</a>
@@ -41,15 +41,24 @@
 </header>
 
 <main id="content">
-  <section class="section section--deep on-dark" id="calc" style="padding-top:60px">
+  <section class="page-hero page-hero--video" data-reveal>
+    <video class="page-hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/hero-poster.jpg" aria-hidden="true">
+      <source src="solar.webm" type="video/webm">
+      <source src="solar-1600.mp4" type="video/mp4">
+    </video>
+    <div class="page-hero__scrim"></div>
     <div class="container">
-      <div class="section__head" data-reveal>
-        <div class="crumbs" style="margin-bottom:16px"><a href="/">Home</a> / Calculator</div>
-        <div class="eyebrow eyebrow--accent"><span class="eyebrow__sq"></span>Savings Calculator</div>
-        <h1 class="h1" style="color:#fff;margin-top:14px;font-size:clamp(32px,5vw,52px);line-height:1.04;letter-spacing:-.02em">See what solar returns for you</h1>
-        <p class="lead lead--on-dark">Choose Villa or Business, set your average monthly DEWA bill, and see the system size, investment, payback, 25&#8209;year savings and CO₂ avoided — recalculated instantly, on conservative assumptions.</p>
+      <div class="page-hero__wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Calculator</nav>
+        <div class="eyebrow"><span class="eyebrow__sq"></span>Savings Calculator</div>
+        <h1>See what solar returns for you</h1>
+        <p class="lead">Choose Villa or Business, set your average monthly DEWA bill, and see the system size, investment, payback, 25&#8209;year savings and CO₂ avoided — recalculated instantly, on conservative assumptions.</p>
       </div>
+    </div>
+  </section>
 
+  <section class="section section--deep on-dark" id="calc">
+    <div class="container">
       <div class="calc__grid">
         <figure class="calc__media" data-reveal>
           <picture><source srcset="assets/img/panels-turbine-sunset.webp" type="image/webp"><img src="assets/img/panels-turbine-sunset.jpg" alt="Solar panels and a wind turbine at sunset, self-generated clean power." loading="lazy" decoding="async"></picture>
@@ -171,6 +180,6 @@
   </div>
 </footer>
 
-<script src="assets/js/script.js?v=10" defer></script>
+<script src="assets/js/script.js?v=13" defer></script>
 </body>
 </html>

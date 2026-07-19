@@ -255,9 +255,8 @@
   /* ============================================================
      Hero video: honor reduced-motion, and pause when off-screen (perf / battery).
      ============================================================ */
-  const heroVideo = $(".hero__video");
-  if (heroVideo) {
-    let userPaused = reduce; // reduced-motion users stay paused (poster shown)
+  $$(".hero__video, .page-hero__video").forEach((heroVideo) => {
+    const userPaused = reduce; // reduced-motion users stay paused (poster shown)
     const tryPlay = () => { const p = heroVideo.play(); if (p && p.catch) p.catch(() => {}); };
 
     if (reduce) { heroVideo.removeAttribute("autoplay"); heroVideo.pause(); }
@@ -269,7 +268,7 @@
       }, { threshold: 0.05 });
       vo.observe(heroVideo);
     }
-  }
+  });
 
   /* ============================================================
      Carousel (native, embla-style): arrows, dots, snap scrolling.
