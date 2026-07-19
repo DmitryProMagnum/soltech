@@ -38,7 +38,7 @@
 <link rel="preload" as="image" href="assets/img/hero-poster.jpg" fetchpriority="high">
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css?v=7">
+<link rel="stylesheet" href="assets/css/styles.css?v=10">
 
 <!-- ===== Structured data ===== -->
 <script type="application/ld+json">
@@ -143,8 +143,8 @@
   <div class="container">
     <div class="section__head" data-reveal>
       <div class="eyebrow eyebrow--accent"><span class="eyebrow__sq"></span>Savings Calculator</div>
-      <h2 class="h2" style="color:#fff">What would your kilowatt&#8209;hour cost?</h2>
-      <p class="lead lead--on-dark">Move the slider to your average monthly DEWA bill. Estimates recalculate instantly, conservatively.</p>
+      <h2 class="h2" style="color:#fff">See what solar returns for you</h2>
+      <p class="lead lead--on-dark">Choose Villa or Business, set your average monthly DEWA bill, and see the system size, investment, payback, 25&#8209;year savings and CO₂ avoided — recalculated instantly, on conservative assumptions.</p>
     </div>
 
     <div class="calc__grid">
@@ -154,8 +154,13 @@
         <figcaption class="calc__media-cap"><span class="k mono">The direction of travel</span><span class="v">Self-generated power</span></figcaption>
       </figure>
 
-      <!-- one unified calculator card: input + results + CTA -->
-      <div class="calc__panel" data-reveal data-reveal-delay="100">
+      <!-- one unified calculator card: type + input + results + CTA -->
+      <div class="calc__panel" data-reveal data-reveal-delay="100" data-calc>
+        <div class="calc__toggle" role="group" aria-label="Property type">
+          <button type="button" class="calc__seg is-active" data-type="villa" aria-pressed="true">Villa / Home</button>
+          <button type="button" class="calc__seg" data-type="business" aria-pressed="false">Business</button>
+        </div>
+
         <div class="calc__input">
           <div class="calc__label">Your average monthly DEWA bill</div>
           <div class="calc__amount">
@@ -163,33 +168,29 @@
             <span class="unit">AED / month</span>
           </div>
           <input class="slider" type="range" id="billSlider" min="500" max="20000" step="100" value="3000" aria-label="Average monthly DEWA bill in AED">
-          <div class="slider__scale"><span>500</span><span>20,000</span></div>
+          <div class="slider__scale"><span id="scaleMin">500</span><span id="scaleMax">20,000</span></div>
         </div>
 
-        <div class="calc__note" id="lowNote" hidden>Honestly: below ~1,500 AED/month the economics are weaker. Solar can still work, so leave your number and we'll tell you straight whether it's worth it.</div>
+        <div class="calc__note" id="lowNote" hidden>Below ~1,500 AED/month the economics are weaker. Solar can still work — leave your number and we'll tell you straight whether it's worth it.</div>
 
-        <div class="calc__results">
-          <div class="calc__result">
-            <div class="calc__result-l">
-              <div class="calc__result-k">Your price per kWh</div>
-              <div class="calc__result-ctx">vs <span class="num" id="dewaRate">0.43</span> AED from DEWA, <span class="accent"><span id="cutPct">75</span>% cheaper</span></div>
-            </div>
-            <div class="calc__result-v">~0.11</div>
+        <div class="calc__hero-metric">
+          <div class="calc__result-l">
+            <div class="calc__result-k">Your solar cost per kWh</div>
+            <div class="calc__result-ctx">vs <span class="num" id="dewaRate">0.40</span> AED from DEWA · <span class="accent"><span id="cutPct">73</span>% cheaper</span></div>
           </div>
-          <div class="calc__result">
-            <div class="calc__result-l">
-              <div class="calc__result-k">Estimated savings</div>
-              <div class="calc__result-ctx">system sized to offset ~85% of your bill</div>
-            </div>
-            <div class="calc__result-v calc__result-v--accent"><span id="saveVal">22,900</span><span class="sm"> AED/yr</span></div>
-          </div>
-          <div class="calc__result">
-            <div class="calc__result-l">
-              <div class="calc__result-k">Payback period</div>
-              <div class="calc__result-ctx">then the power is effectively yours</div>
-            </div>
-            <div class="calc__result-v"><span id="paybackVal">6.6</span><span class="sm"> years</span></div>
-          </div>
+          <div class="calc__result-v">~0.11</div>
+        </div>
+
+        <div class="calc__tiles">
+          <div class="calc__tile"><div class="calc__tile-k">Recommended system</div><div class="calc__tile-v mono"><span id="sysKwp">44</span><span class="sm"> kWp</span></div></div>
+          <div class="calc__tile"><div class="calc__tile-k">Est. investment</div><div class="calc__tile-v mono"><span id="capexVal">167,000</span><span class="sm"> AED</span></div></div>
+          <div class="calc__tile"><div class="calc__tile-k">Annual savings</div><div class="calc__tile-v mono calc-accent"><span id="saveVal">30,600</span><span class="sm"> AED</span></div></div>
+          <div class="calc__tile"><div class="calc__tile-k">Payback</div><div class="calc__tile-v mono"><span id="paybackVal">5.4</span><span class="sm"> yrs</span></div></div>
+        </div>
+
+        <div class="calc__bigrow">
+          <div class="calc__big"><div class="calc__big-k">25-year net savings</div><div class="calc__big-v mono"><span id="net25Val">537,000</span><span class="sm"> AED</span></div></div>
+          <div class="calc__big"><div class="calc__big-k">CO₂ avoided</div><div class="calc__big-v mono"><span id="co2Val">29</span><span class="sm"> t / yr</span></div></div>
         </div>
 
         <div class="calc__submit">
@@ -489,6 +490,6 @@
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm0 18.1c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29z"></path></svg>
 </a>
 
-<script src="assets/js/script.js?v=3" defer></script>
+<script src="assets/js/script.js?v=10" defer></script>
 </body>
 </html>

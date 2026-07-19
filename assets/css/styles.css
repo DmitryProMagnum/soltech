@@ -377,6 +377,40 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 .calc__result-v--accent { color: var(--accent); }
 .calc__result-v .sm { font-size: 15px; color: var(--on-dark-55); }
 
+/* Property-type toggle */
+.calc__toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 5px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--r-btn); }
+.calc__seg { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: var(--on-dark-70); font-family: var(--sans); font-size: 14px; font-weight: 600; padding: 11px 12px; border-radius: 7px; cursor: pointer; transition: background .2s var(--ease), color .2s var(--ease); }
+.calc__seg:hover { color: #fff; }
+.calc__seg.is-active { background: var(--accent); color: #fff; }
+
+/* Hero metric — solar cost per kWh */
+.calc__hero-metric { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 2px 0 18px; border-bottom: 1px dashed rgba(255,255,255,.16); }
+.calc__hero-metric .calc__result-v { min-width: 0; }
+
+/* Metric tiles */
+.calc__tiles { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; }
+.calc__tile { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.10); border-radius: 12px; padding: 14px 16px; min-height: 84px; display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
+.calc__tile-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-55); }
+.calc__tile-v { font-family: var(--mono); font-size: clamp(22px, 2.4vw, 27px); font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.calc__tile-v .sm { font-size: 13px; color: var(--on-dark-55); font-weight: 500; }
+.calc__tile-v.calc-accent { color: var(--accent); }
+
+/* 25-year savings + CO2 */
+.calc__bigrow { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); gap: 12px; }
+.calc__big { border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+.calc__big:first-child { background: rgba(240,128,24,.14); border: 1px solid rgba(240,128,24,.36); }
+.calc__big:last-child  { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.10); }
+.calc__big-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-70); }
+.calc__big-v { font-family: var(--mono); font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.calc__big:first-child .calc__big-v { color: var(--accent); }
+.calc__big-v .sm { font-size: 13px; color: var(--on-dark-55); font-weight: 500; }
+@media (max-width: 560px) {
+  .calc__bigrow { grid-template-columns: 1fr; }
+  .calc__tile-v { font-size: 21px; }
+  .calc__big-v { font-size: 25px; }
+  .calc__panel { padding: 26px 20px; }
+}
+
 .calc__submit { text-align: center; margin-top: 4px; }
 .calc__submit .btn { width: 100%; }
 .calc__reqnote { text-align: center; margin-top: 12px; font-size: 12.5px; color: var(--on-dark-55); }
