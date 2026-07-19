@@ -20,12 +20,14 @@
 .page-hero .container { position: relative; z-index: 1; }
 .page-hero__wrap { max-width: 820px; }
 
-/* Video-banner variant (same footage as the home hero) */
-.page-hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.page-hero__scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(9,20,38,.74) 0%, rgba(9,20,38,.88) 100%); }
-.page-hero--video { padding: 92px 0 96px; }
+/* Video-banner variant — matched to the home hero: full height, light
+   left-weighted scrim (video stays bright), no full-cover darkening. */
+.page-hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transform: scale(1.04); animation: heroZoom 24s ease-out both; }
+.page-hero__scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(9,20,38,.62) 0%, rgba(9,20,38,.22) 42%, transparent 68%); }
+.page-hero--video { min-height: 100dvh; display: flex; align-items: center; padding: 72px 0 48px; }
 .page-hero--video::after { content: none; }
-.page-hero--video .container { z-index: 2; }
+.page-hero--video .container { z-index: 2; width: 100%; }
+@media (max-width: 560px) { .page-hero--video { min-height: auto; padding: 96px 0 64px; } }
 .page-hero h1 { margin: 16px 0 0; font-size: clamp(32px, 5.4vw, 54px); line-height: 1.04; letter-spacing: -.025em; color: #fff; font-weight: 800; }
 .page-hero .lead { margin: 20px 0 0; color: var(--on-dark-70); max-width: 62ch; }
 .page-hero .eyebrow { color: var(--accent); }
