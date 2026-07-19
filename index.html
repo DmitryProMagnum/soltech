@@ -38,7 +38,7 @@
 <link rel="preload" as="image" href="assets/img/hero-poster.jpg" fetchpriority="high">
 <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css?v=17">
+<link rel="stylesheet" href="assets/css/styles.css?v=18">
 
 <!-- ===== Structured data ===== -->
 <script type="application/ld+json">
@@ -89,24 +89,22 @@
   <div class="header-inner">
     <a href="#top" class="brand" aria-label="SolTech home">S<svg class="brand__sun" viewBox="0 0 100 100" role="img" aria-label="O" focusable="false"><g stroke-width="8" stroke-linecap="round" fill="none"><line x1="50" y1="20" x2="50" y2="5"/><line x1="50" y1="80" x2="50" y2="95"/><line x1="20" y1="50" x2="5" y2="50"/><line x1="80" y1="50" x2="95" y2="50"/><line x1="71.2" y1="28.8" x2="81.8" y2="18.2"/><line x1="71.2" y1="71.2" x2="81.8" y2="81.8"/><line x1="28.8" y1="71.2" x2="18.2" y2="81.8"/><line x1="28.8" y1="28.8" x2="18.2" y2="18.2"/></g><circle cx="50" cy="50" r="24"/></svg>LTECH</a>
     <nav class="nav" aria-label="Primary">
-      <a class="nav__link" href="#calc">Calculator</a>
-      <a class="nav__link" href="/equipment.html">Equipment</a>
-      <a class="nav__link" href="/dewa-guide.html">DEWA Guide</a>
-      <a class="nav__link" href="/case-studies.html">Case Studies</a>
+      <a class="nav__link" href="/residential.html">Residential</a>
+      <a class="nav__link" href="/business.html">Business</a>
+      <a class="nav__link" href="/investors.html">Investors</a>
+      <a class="nav__link" href="/calculator.html">Calculator</a>
       <a class="nav__link" href="/maintenance.html">Maintenance</a>
-      <a class="nav__link" href="#faq">FAQ</a>
     </nav>
     <a href="#calc" class="btn btn--accent btn--sm header-cta">Calculate my savings</a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
   </div>
   <div class="mobile-nav" id="mobileNav">
-    <a href="#calc">Calculator</a>
-    <a href="/equipment.html">Equipment</a>
-    <a href="/dewa-guide.html">DEWA Guide</a>
-    <a href="/case-studies.html">Case Studies</a>
+    <a href="/residential.html">Residential</a>
+    <a href="/business.html">Business</a>
+    <a href="/investors.html">Investors</a>
+    <a href="/calculator.html">Calculator</a>
     <a href="/maintenance.html">Maintenance</a>
-    <a href="#faq">FAQ</a>
-    <a href="#calc" class="btn btn--accent">Calculate my savings</a>
+    <a href="/calculator.html" class="btn btn--accent">Calculate savings</a>
   </div>
 </header>
 
@@ -132,6 +130,36 @@
         </div>
         <div class="hero__trust load-up d4">No upfront investment · Guaranteed savings · Fully managed</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AUDIENCE CHOOSER ==================== -->
+<section class="section section--white" id="audiences">
+  <div class="container">
+    <div class="section__head" data-reveal>
+      <div class="eyebrow eyebrow--accent"><span class="eyebrow__sq"></span>Where do you fit?</div>
+      <h2 class="h2">One platform, three ways in</h2>
+    </div>
+    <div class="chooser" data-reveal data-reveal-delay="80">
+      <a class="chooser-card" href="/business.html">
+        <span class="chooser-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></span>
+        <div class="chooser-card__t">For Business</div>
+        <p class="chooser-card__d">Commercial &amp; industrial sites — cut your energy OPEX with zero capital, fully managed.</p>
+        <span class="chooser-card__go">Explore <span class="arw">→</span></span>
+      </a>
+      <a class="chooser-card" href="/residential.html">
+        <span class="chooser-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+        <div class="chooser-card__t">For Residential</div>
+        <p class="chooser-card__d">Villa &amp; home owners — own your rooftop solar and cut your DEWA bill for 25 years.</p>
+        <span class="chooser-card__go">Explore <span class="arw">→</span></span>
+      </a>
+      <a class="chooser-card" href="/investors.html">
+        <span class="chooser-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 15.5 9 10l3.5 3.5L21 5"/><path d="M15.5 5H21v5.5"/></svg></span>
+        <div class="chooser-card__t">For Investors</div>
+        <p class="chooser-card__d">Back contracted, asset-backed UAE energy infrastructure with long-term cash flows.</p>
+        <span class="chooser-card__go">Explore <span class="arw">→</span></span>
+      </a>
     </div>
   </div>
 </section>

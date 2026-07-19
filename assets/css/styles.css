@@ -442,6 +442,19 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 }
 @media (max-width: 520px) { .seg-grid { grid-template-columns: 1fr 1fr; } }
 
+/* audience chooser (home) */
+.chooser { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+.chooser-card { display: block; background: #fff; border-radius: 18px; padding: 28px; box-shadow: 0 1px 2px rgba(22,52,94,.05), 0 18px 40px -22px rgba(22,52,94,.20); text-decoration: none; color: inherit; transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+.chooser-card:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(22,52,94,.06), 0 26px 50px -22px rgba(22,52,94,.32); }
+.chooser-card__ic { width: 46px; height: 46px; border-radius: 13px; background: rgba(240,128,24,.13); color: var(--accent-strong); display: grid; place-items: center; }
+.chooser-card__ic svg { width: 24px; height: 24px; }
+.chooser-card__t { margin: 18px 0 0; font-size: 20px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.chooser-card__d { margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+.chooser-card__go { margin-top: 16px; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--accent-strong); }
+.chooser-card__go .arw { transition: transform .2s var(--ease); }
+.chooser-card:hover .chooser-card__go .arw { transform: translateX(4px); }
+@media (max-width: 900px) { .chooser { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
+
 /* ============================================================
    Compare chart
    ============================================================ */

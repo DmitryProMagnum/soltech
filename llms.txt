@@ -10,6 +10,9 @@
 - [DEWA & Shams Dubai guide](https://soltech.solutions/dewa-guide.html): How Shams Dubai, net metering, eligible equipment and grid-tied systems work, plus tariffs and realistic timelines.
 - [Case studies](https://soltech.solutions/case-studies.html): Illustrative before/after savings stories and a 25-year cost-of-ownership comparison.
 - [Maintenance plans](https://soltech.solutions/maintenance.html): Post-connection O&M — fault monitoring is free for life on every install (catches faults, keeps the warranty record). Paid cleaning plans Care from AED 79/month and Complete from AED 159/month (villa); commercial from ~AED 35/kWp/year. Cleaning wins back roughly 2x its cost.
+- [For business](https://soltech.solutions/business.html): Commercial & industrial Energy-as-a-Service — No CapEx, OPEX reduction, fully managed; payment via shared savings, fixed service fee or hybrid.
+- [For residential](https://soltech.solutions/residential.html): Villa & home owners — the ownership track: buy your own rooftop solar under Shams Dubai and cut your DEWA bill for 25 years.
+- [For investors](https://soltech.solutions/investors.html): Capital partners fund contracted, asset-backed UAE energy-infrastructure projects for long-term returns. Information only — not an offer or investment advice.
 
 ## Key sections
 
