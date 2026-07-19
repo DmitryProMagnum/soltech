@@ -89,118 +89,112 @@
   /* ============================================================
      Savings calculator
      ============================================================ */
-  // Modelled constants (see published methodology):
-  const SOLAR_RATE = 0.11;   // AED/kWh — levelised cost of self-generated solar
-  const YIELD      = 1750;   // kWh per kWp per year in Dubai (conservative)
-  const OFFSET     = 0.85;   // system sized to offset ~85% of annual consumption
-  const CO2        = 0.40;   // kg CO2 per kWh — UAE grid emission factor
-  const DEGR       = 0.92;   // average panel output over a 25-year life
+  // Energy-as-a-Service model. SolTech funds, builds and runs the on-site
+  // system; solar replaces a share of daytime consumption, SolTech takes a
+  // share of the value it replaces, and the client keeps the rest — at AED 0
+  // capital outlay. Figures are illustrative, confirmed per site.
+  const RATE          = 0.44;   // AED/kWh — all-in commercial DEWA cost
+  const SOLTECH_SHARE = 0.63;   // SolTech's share of the value solar replaces
+  const CO2           = 0.40;   // kg CO2 per kWh — UAE grid emission factor
 
-  // Per-property-type assumptions. rate = all-in DEWA cost/kWh (slab + fuel
-  // surcharge + VAT); cost = installed AED per kWp.
-  const TYPES = {
-    villa:    { rate: 0.40, cost: 3800, min: 500,  max: 20000,  step: 100,  start: 3000  },
-    business: { rate: 0.44, cost: 2800, min: 2000, max: 200000, step: 1000, start: 15000 },
+  // Offset = share of the monthly bill on-site solar can replace, by facility
+  // (commercial daytime load profiles).
+  const FACILITIES = {
+    warehouse:     { offset: 0.46 },
+    manufacturing: { offset: 0.50 },
+    cold:          { offset: 0.55 },
+    office:        { offset: 0.40 },
   };
+  const BILL_MIN = 20000, BILL_MAX = 500000, BILL_STEP = 5000, BILL_START = 120000;
 
   const slider    = $("#billSlider");
   const billVal   = $("#billVal");
-  const dewaRate  = $("#dewaRate");
-  const cutPct    = $("#cutPct");
-  const sysKwp    = $("#sysKwp");
-  const capexVal  = $("#capexVal");
-  const saveVal   = $("#saveVal");
-  const payback   = $("#paybackVal");
-  const net25Val  = $("#net25Val");
+  const dewaNow   = $("#dewaNow");
+  const newTotal  = $("#newTotal");
+  const monthSave = $("#monthSave");
+  const savePct   = $("#savePct");
+  const yearSave  = $("#yearSave");
+  const tenSave   = $("#tenSave");
   const co2Val    = $("#co2Val");
   const scaleMin  = $("#scaleMin");
   const scaleMax  = $("#scaleMax");
-  const lowNote   = $("#lowNote");
   const reportCta = $("#reportCta");
   const segs      = $$(".calc__seg");
 
-  let calcType = "villa";
+  let facility = "warehouse";
 
   function compute(bill) {
-    const t = TYPES[calcType];
-    const annualUse  = (bill / t.rate) * 12;   // kWh / year
-    const generation = OFFSET * annualUse;     // kWh / year offset by solar
-    const kwp        = generation / YIELD;
-    const capex      = kwp * t.cost;
-    const save       = generation * t.rate;    // = OFFSET * bill * 12
+    const offset   = FACILITIES[facility].offset;
+    const replaced = bill * offset;            // AED/month of DEWA solar replaces
+    const dewaLeft = bill - replaced;          // residual DEWA bill
+    const fee      = replaced * SOLTECH_SHARE;  // SolTech monthly fee
+    const total    = dewaLeft + fee;           // client's new monthly total
+    const save     = bill - total;             // = replaced * (1 - SOLTECH_SHARE)
+    const kwhYr    = (replaced / RATE) * 12;    // kWh/yr solar delivers
     return {
-      rate: t.rate, kwp, capex, save,
-      payback: capex / save,
-      net25:   25 * save * DEGR - capex,
-      co2:     generation * CO2 / 1000,         // tonnes / year
-      cut:     (1 - SOLAR_RATE / t.rate) * 100,
+      total, save,
+      yearSave: save * 12,
+      tenSave:  save * 120,
+      pct:      save / bill * 100,
+      co2:      kwhYr * CO2 / 1000,            // tonnes/yr
     };
   }
 
   const roundTo = (n, s) => Math.round(n / s) * s;
   const grp     = (n) => Math.round(n).toLocaleString("en-US");
-  // Compact money so large business figures stay legible: >=1M -> "1.9M" / "39M".
+  // Compact money so large figures stay legible: >=1M -> "2.4M"; else grouped.
   const money   = (n) => n >= 1e6 ? ((n / 1e6 >= 10 ? Math.round(n / 1e6) : (n / 1e6).toFixed(1)) + "M")
                        : n >= 1e5 ? grp(roundTo(n, 1000))
                        : grp(roundTo(n, 100));
 
   function paint(bill, d) {
-    billVal.textContent  = bill.toLocaleString("en-US");
-    dewaRate.textContent = d.rate.toFixed(2);
-    cutPct.textContent   = Math.round(d.cut);
-    sysKwp.textContent   = d.kwp >= 10 ? grp(d.kwp) : d.kwp.toFixed(1);
-    capexVal.textContent = money(d.capex);
-    saveVal.textContent  = money(d.save);
-    payback.textContent  = d.payback.toFixed(1);
-    net25Val.textContent = money(d.net25);
-    co2Val.textContent   = d.co2 >= 10 ? grp(d.co2) : d.co2.toFixed(1);
+    billVal.textContent    = bill.toLocaleString("en-US");
+    if (dewaNow)   dewaNow.textContent   = money(bill);
+    if (newTotal)  newTotal.textContent  = money(d.total);
+    if (monthSave) monthSave.textContent = money(d.save);
+    if (savePct)   savePct.textContent   = Math.round(d.pct);
+    if (yearSave)  yearSave.textContent  = money(d.yearSave);
+    if (tenSave)   tenSave.textContent   = money(d.tenSave);
+    if (co2Val)    co2Val.textContent    = d.co2 >= 10 ? grp(d.co2) : d.co2.toFixed(1);
   }
 
   function setSliderFill(bill) {
-    const t = TYPES[calcType];
-    const pct = (bill - t.min) / (t.max - t.min) * 100;
+    const pct = (bill - BILL_MIN) / (BILL_MAX - BILL_MIN) * 100;
     slider.style.background =
       `linear-gradient(90deg, var(--accent) ${pct}%, var(--slider-track, rgba(22,52,94,.14)) ${pct}%)`;
   }
 
-  function setLowNote(bill) {
-    if (calcType === "villa" && bill < 1500) lowNote.removeAttribute("hidden");
-    else lowNote.setAttribute("hidden", "");
-  }
-
   function setReportHref(bill) {
-    const label = calcType === "business" ? "business" : "villa";
     reportCta.href =
       "https://wa.me/971500000000?text=" +
-      encodeURIComponent(`Hi SolTech, please send my full savings report. My ${label} monthly bill is about ${bill} AED`);
+      encodeURIComponent(`Hi SolTech, I'd like a No-CapEx energy proposal. Our monthly DEWA bill is about ${bill} AED.`);
   }
 
   function render(bill) {
     setSliderFill(bill);
-    setLowNote(bill);
     setReportHref(bill);
     paint(bill, compute(bill));
   }
 
   function onBill() { render(+slider.value); }
 
-  function setType(type) {
-    if (!TYPES[type] || type === calcType) return;
-    calcType = type;
-    const t = TYPES[type];
-    slider.min = t.min; slider.max = t.max; slider.step = t.step; slider.value = t.start;
-    if (scaleMin) scaleMin.textContent = t.min.toLocaleString("en-US");
-    if (scaleMax) scaleMax.textContent = t.max.toLocaleString("en-US");
+  function setFacility(type) {
+    if (!FACILITIES[type] || type === facility) return;
+    facility = type;
     segs.forEach((s) => {
       const on = s.dataset.type === type;
       s.classList.toggle("is-active", on);
       s.setAttribute("aria-pressed", on ? "true" : "false");
     });
-    render(t.start);
+    render(+slider.value);
   }
 
   if (slider) {
-    segs.forEach((s) => s.addEventListener("click", () => setType(s.dataset.type)));
+    slider.min = BILL_MIN; slider.max = BILL_MAX; slider.step = BILL_STEP;
+    if (!slider.value || +slider.value < BILL_MIN) slider.value = BILL_START;
+    if (scaleMin) scaleMin.textContent = BILL_MIN.toLocaleString("en-US");
+    if (scaleMax) scaleMax.textContent = BILL_MAX.toLocaleString("en-US");
+    segs.forEach((s) => s.addEventListener("click", () => setFacility(s.dataset.type)));
     slider.addEventListener("input", onBill);
     slider.addEventListener("change", onBill);
     render(+slider.value);
