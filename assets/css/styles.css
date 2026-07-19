@@ -180,21 +180,6 @@ button { font-family: inherit; }
 }
 .skip-link:focus { top: 12px; color: #fff; outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* ---------- Hero video pause/play control (a11y: WCAG 2.2.2) ---------- */
-.hero__mediactrl {
-  position: absolute; right: 22px; bottom: 22px; z-index: 3;
-  width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(14,36,64,.55); border: 1px solid rgba(255,255,255,.35); color: #fff;
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-  transition: background .25s var(--ease), transform .25s var(--ease);
-}
-.hero__mediactrl:hover { background: rgba(14,36,64,.8); transform: scale(1.06); }
-.hero__mediactrl svg { width: 18px; height: 18px; display: block; }
-.hero__mediactrl .icon-play { display: none; }
-.hero__mediactrl.is-paused .icon-play { display: block; }
-.hero__mediactrl.is-paused .icon-pause { display: none; }
-
 /* ============================================================
    Header
    ============================================================ */

@@ -264,32 +264,14 @@
      which avoids a scroll listener and forced reflows entirely. */
 
   /* ============================================================
-     Hero video: honor reduced-motion, a manual pause/play control (WCAG 2.2.2),
-     and pause when off-screen (perf / battery).
+     Hero video: honor reduced-motion, and pause when off-screen (perf / battery).
      ============================================================ */
   const heroVideo = $(".hero__video");
-  const mediaCtrl = $("#heroMediaCtrl");
   if (heroVideo) {
-    let userPaused = reduce; // reduced-motion users start paused (poster shown)
+    let userPaused = reduce; // reduced-motion users stay paused (poster shown)
     const tryPlay = () => { const p = heroVideo.play(); if (p && p.catch) p.catch(() => {}); };
 
-    const setCtrl = (paused) => {
-      if (!mediaCtrl) return;
-      mediaCtrl.classList.toggle("is-paused", paused);
-      mediaCtrl.setAttribute("aria-label", paused ? "Play background video" : "Pause background video");
-    };
-
     if (reduce) { heroVideo.removeAttribute("autoplay"); heroVideo.pause(); }
-    setCtrl(userPaused);
-
-    if (mediaCtrl) {
-      mediaCtrl.addEventListener("click", () => {
-        userPaused = !userPaused;
-        if (userPaused) heroVideo.pause();
-        else tryPlay();
-        setCtrl(userPaused);
-      });
-    }
 
     if ("IntersectionObserver" in window) {
       const vo = new IntersectionObserver(([e]) => {
