@@ -112,6 +112,25 @@
 .kpi__k { margin-top: 10px; font-size: 14px; color: var(--muted); }
 .kpi--on-dark .kpi__k { color: var(--on-dark-70); }
 
+/* ---------- Maintenance pricing plans ---------- */
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 10px; align-items: stretch; }
+.plan-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r-card); padding: 30px 28px; display: flex; flex-direction: column; box-shadow: var(--shadow-card); }
+.plan-card--featured { border-color: var(--accent); box-shadow: 0 26px 60px -28px rgba(240,128,24,.42); position: relative; }
+.plan-card__badge { position: absolute; top: -12px; left: 28px; background: var(--accent); color: #fff; font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: var(--r-pill); }
+.plan-card__name { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-strong); }
+.plan-card__price { margin-top: 14px; display: flex; align-items: baseline; gap: 6px; }
+.plan-card__price .cur { font-family: var(--mono); font-size: 15px; color: var(--muted); font-weight: 600; }
+.plan-card__price .amt { font-family: var(--mono); font-size: 42px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1; }
+.plan-card__price .per { font-size: 14px; color: var(--muted); }
+.plan-card__from { font-size: 12.5px; color: var(--faint); margin-top: 6px; }
+.plan-card__desc { margin-top: 14px; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+.plan-card__list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 11px; }
+.plan-card__list li { position: relative; padding-left: 26px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.plan-card__list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent-strong); font-weight: 700; }
+.plan-card__cta { margin-top: auto; padding-top: 24px; }
+.plan-card__cta .btn { width: 100%; }
+.plan-note { margin-top: 18px; font-size: 13px; color: var(--faint); }
+
 /* ---------- Bottom CTA band ---------- */
 .page-cta { background: var(--deep); color: #fff; text-align: center; padding: 74px 0; }
 .page-cta h2 { font-size: clamp(26px, 3.6vw, 40px); color: #fff; font-weight: 800; letter-spacing: -.02em; max-width: 20ch; margin: 0 auto; }
@@ -123,6 +142,7 @@
   .feature-grid, .story-grid { grid-template-columns: 1fr 1fr; }
   .brand-grid { grid-template-columns: repeat(3, 1fr); }
   .kpi-row { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .plans { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
 }
 @media (max-width: 620px) {
   .feature-grid, .story-grid, .brand-grid { grid-template-columns: 1fr; }
