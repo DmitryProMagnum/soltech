@@ -5,6 +5,10 @@
 ## Pages
 
 - [Home](https://soltech.solutions/): Overview, live savings calculator, 25-year cost comparison, model scenarios, and FAQ.
+- [Savings calculator](https://soltech.solutions/calculator.html): Villa/business calculator estimating system size (kWp), investment, payback, 25-year net savings and CO2 avoided from a monthly DEWA bill, with the published methodology.
+- [Equipment we install](https://soltech.solutions/equipment.html): DEWA Eligible-Equipment-listed panel and inverter brands SolTech installs, selected on ROI, heat tolerance and warranty.
+- [DEWA & Shams Dubai guide](https://soltech.solutions/dewa-guide.html): How Shams Dubai, net metering, eligible equipment and grid-tied systems work, plus tariffs and realistic timelines.
+- [Case studies](https://soltech.solutions/case-studies.html): Illustrative before/after savings stories and a 25-year cost-of-ownership comparison.
 
 ## Key sections
 
