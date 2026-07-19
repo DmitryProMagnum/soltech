@@ -110,7 +110,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;   /* clip (not hidden) so position: sticky keeps working */
 }
 img, video, svg { display: block; max-width: 100%; }
 picture { display: contents; }
@@ -185,9 +185,9 @@ button { font-family: inherit; }
    ============================================================ */
 .site-header {
   position: sticky; top: 0; z-index: 60;
-  background: rgba(9,20,38,.72);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  backdrop-filter: blur(20px) saturate(140%);
+  background: rgba(9,20,38,.84);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .site-header .nav__link,

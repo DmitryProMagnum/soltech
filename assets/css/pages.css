@@ -5,7 +5,7 @@
    ============================================================ */
 
 /* ---------- Solid multi-page header ---------- */
-.page-header { position: sticky; top: 0; z-index: 100; background: var(--deep); border-bottom: 1px solid rgba(255,255,255,.08); }
+.page-header { position: sticky; top: 0; z-index: 100; background: rgba(9,20,38,.84); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,.08); }
 .page-header .brand { color: #fff; }
 .page-header .nav__link { color: var(--on-dark-70); }
 .page-header .nav__link:hover,

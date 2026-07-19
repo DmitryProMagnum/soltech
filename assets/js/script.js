@@ -73,7 +73,7 @@
         if (chart) drawChart(chart);
         io.unobserve(el);
       });
-    }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
     revealEls.forEach((el) => io.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add("is-in"));
