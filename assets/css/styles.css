@@ -311,83 +311,89 @@ body.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45d
 /* ============================================================
    Calculator
    ============================================================ */
-.calc__grid { max-width: 640px; margin: 52px auto 0; }
+.calc__grid { max-width: 680px; margin: 48px auto 0; }
+.calc__panel { display: flex; flex-direction: column; gap: 16px; --slider-track: rgba(22,52,94,.14); }
 
-/* one unified card: input + results + CTA */
-.calc__panel {
-  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
-  border-radius: var(--r-card); padding: 32px 34px;
-  display: flex; flex-direction: column; gap: 20px;
+/* control card: toggle + bill + slider + hero metric */
+.calc__control {
+  background: #fff; border-radius: 20px; padding: 26px 28px;
+  box-shadow: 0 1px 2px rgba(22,52,94,.05), 0 20px 44px -22px rgba(22,52,94,.22);
+  display: flex; flex-direction: column; gap: 22px;
 }
-.calc__label { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--on-dark-55); }
-.calc__amount { display: flex; align-items: baseline; gap: 10px; margin: 10px 0 16px; }
-.calc__amount .big { font-family: var(--mono); font-size: clamp(38px, 5vw, 52px); font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; }
-.calc__amount .unit { font-family: var(--mono); font-size: 15px; color: var(--on-dark-55); }
 
-.slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; outline: none; cursor: pointer; background: rgba(255,255,255,.18); }
-.slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 4px solid var(--accent); box-shadow: 0 2px 12px rgba(0,0,0,.4); cursor: grab; transition: transform .15s var(--ease); }
+/* property-type toggle */
+.calc__toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 5px; background: var(--paper); border-radius: 12px; }
+.calc__seg { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: var(--muted); font-family: var(--sans); font-size: 14px; font-weight: 700; padding: 11px 12px; border-radius: 9px; cursor: pointer; transition: background .2s var(--ease), color .2s var(--ease), box-shadow .2s var(--ease); }
+.calc__seg:hover { color: var(--ink); }
+.calc__seg.is-active { background: var(--accent-strong); color: #fff; box-shadow: 0 8px 18px -8px rgba(192,83,15,.55); }
+
+/* bill input */
+.calc__label { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); }
+.calc__amount { display: flex; align-items: baseline; gap: 10px; margin: 8px 0 16px; }
+.calc__amount .big { font-family: var(--mono); font-size: clamp(38px, 5vw, 52px); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1; }
+.calc__amount .unit { font-family: var(--mono); font-size: 15px; color: var(--faint); }
+
+.slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; outline: none; cursor: pointer; background: var(--slider-track); }
+.slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 4px solid var(--accent); box-shadow: 0 3px 12px rgba(22,52,94,.30); cursor: grab; transition: transform .15s var(--ease); }
 .slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.12); }
-.slider::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 4px solid var(--accent); box-shadow: 0 2px 12px rgba(0,0,0,.4); cursor: grab; }
-.slider__scale { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--on-dark-55); }
+.slider::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 4px solid var(--accent); box-shadow: 0 3px 12px rgba(22,52,94,.30); cursor: grab; }
+.slider__scale { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--faint); }
 
 .calc__note {
-  background: rgba(240,128,24,.12); border: 1px solid rgba(240,128,24,.4);
-  border-radius: 12px; padding: 14px 16px; font-size: 13.5px; line-height: 1.5; color: rgba(255,255,255,.9);
+  background: rgba(240,128,24,.10); border: 1px solid rgba(240,128,24,.32);
+  border-radius: 12px; padding: 14px 16px; font-size: 13.5px; line-height: 1.5; color: var(--muted);
   max-height: 200px; overflow: hidden;
   transition: max-height .45s var(--ease), opacity .35s var(--ease), margin .35s var(--ease), padding .35s var(--ease);
 }
 .calc__note[hidden] { display: block; max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0; margin: 0; border-width: 0; }
 
-/* results as rows inside the card */
-.calc__results { display: flex; flex-direction: column; }
-.calc__result { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 92px; padding: 15px 0; border-top: 1px dashed rgba(255,255,255,.16); }
-.calc__result-k { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--on-dark-55); }
-.calc__result-ctx { margin-top: 5px; font-size: 13.5px; line-height: 1.4; color: var(--on-dark-70); }
-.calc__result-ctx .accent { color: var(--accent); font-weight: 600; }
-.calc__result-v { font-family: var(--mono); font-size: clamp(30px, 3.4vw, 40px); font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 240px; text-align: right; flex: 0 0 auto; }
-.calc__result-v--accent { color: var(--accent); }
-.calc__result-v .sm { font-size: 15px; color: var(--on-dark-55); }
+/* hero metric — solar cost per kWh (tinted strip) */
+.calc__hero-metric { display: flex; align-items: center; gap: 14px; padding: 15px 18px; background: var(--paper); border-radius: 14px; }
+.calc__hm-ic { width: 40px; height: 40px; border-radius: 12px; background: rgba(240,128,24,.14); color: var(--accent-strong); display: grid; place-items: center; flex: none; }
+.calc__hm-ic svg { width: 21px; height: 21px; }
+.calc__hero-metric .calc__result-l { flex: 1; min-width: 0; }
+.calc__result-k { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); }
+.calc__result-ctx { margin-top: 4px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.calc__result-ctx .accent { color: var(--accent-strong); font-weight: 700; }
+.calc__result-v { font-family: var(--mono); font-size: clamp(30px, 3.4vw, 38px); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; flex: none; }
+.calc__result-v .sm { font-size: 15px; color: var(--faint); }
 
-/* Property-type toggle */
-.calc__toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 5px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--r-btn); }
-.calc__seg { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: var(--on-dark-70); font-family: var(--sans); font-size: 14px; font-weight: 600; padding: 11px 12px; border-radius: 7px; cursor: pointer; transition: background .2s var(--ease), color .2s var(--ease); }
-.calc__seg:hover { color: #fff; }
-.calc__seg.is-active { background: var(--accent); color: #fff; }
+/* metric tiles — flat white cards with a line icon */
+.calc__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.calc__tile {
+  background: #fff; border-radius: 16px; padding: 18px;
+  box-shadow: 0 1px 2px rgba(22,52,94,.05), 0 14px 32px -18px rgba(22,52,94,.24);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.calc__tile:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(22,52,94,.06), 0 22px 44px -20px rgba(22,52,94,.32); }
+.calc__tile-ic { width: 42px; height: 42px; border-radius: 12px; background: rgba(22,52,94,.06); color: var(--ink); display: grid; place-items: center; flex: none; }
+.calc__tile-ic svg { width: 22px; height: 22px; }
+.calc__tile--accent .calc__tile-ic { background: rgba(240,128,24,.13); color: var(--accent-strong); }
+.calc__tile-b { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.calc__tile-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.calc__tile-v { font-family: var(--mono); font-size: clamp(23px, 2.5vw, 28px); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.calc__tile-v .sm { font-size: 13px; color: var(--faint); font-weight: 500; }
+.calc__tile--accent .calc__tile-v { color: var(--accent-strong); }
 
-/* Hero metric — solar cost per kWh */
-.calc__hero-metric { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 2px 0 18px; border-bottom: 1px dashed rgba(255,255,255,.16); }
-.calc__hero-metric .calc__result-v { min-width: 0; }
-
-/* Metric tiles */
-.calc__tiles { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; }
-.calc__tile { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.10); border-radius: 12px; padding: 14px 16px; min-height: 84px; display: flex; flex-direction: column; justify-content: center; gap: 7px; overflow: hidden; }
-.calc__tile-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-55); }
-.calc__tile-v { font-family: var(--mono); font-size: clamp(22px, 2.4vw, 27px); font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
-.calc__tile-v .sm { font-size: 13px; color: var(--on-dark-55); font-weight: 500; }
-.calc__tile-v.calc-accent { color: var(--accent); }
-
-/* 25-year savings + CO2 */
-.calc__bigrow { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); gap: 12px; }
-.calc__big { border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
-.calc__big:first-child { background: rgba(240,128,24,.14); border: 1px solid rgba(240,128,24,.36); }
-.calc__big:last-child  { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.10); }
-.calc__big-k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-70); }
-.calc__big-v { font-family: var(--mono); font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
-.calc__big:first-child .calc__big-v { color: var(--accent); }
-.calc__big-v .sm { font-size: 13px; color: var(--on-dark-55); font-weight: 500; }
 @media (max-width: 560px) {
-  .calc__bigrow { grid-template-columns: 1fr; }
-  .calc__tile-v { font-size: 21px; }
-  .calc__big-v { font-size: 25px; }
-  .calc__panel { padding: 26px 20px; }
+  .calc__tiles { gap: 10px; }
+  .calc__tile { padding: 15px 13px; gap: 10px; }
+  .calc__tile-ic { width: 38px; height: 38px; }
+  .calc__tile-ic svg { width: 20px; height: 20px; }
+  .calc__tile-v { font-size: 18px; }
+  .calc__control { padding: 22px 18px; }
+  .calc__hero-metric { padding: 13px 14px; gap: 12px; }
+  .calc__hm-ic { width: 36px; height: 36px; }
+  .calc__result-v { font-size: 30px; }
 }
 
-.calc__submit { text-align: center; margin-top: 4px; }
-.calc__submit .btn { width: 100%; }
-.calc__reqnote { text-align: center; margin-top: 12px; font-size: 12.5px; color: var(--on-dark-55); }
-.calc__foot { margin-top: 22px; font-size: 13px; color: var(--on-dark-55); }
-.calc__foot a { color: var(--on-dark-55); text-decoration: underline; }
-.calc__foot a:hover { color: var(--accent); }
+.calc__submit { text-align: center; margin-top: 6px; }
+.calc__submit .btn { width: 100%; box-shadow: 0 16px 34px -14px rgba(192,83,15,.5); }
+.calc__reqnote { text-align: center; margin-top: 12px; font-size: 12.5px; color: var(--faint); }
+.calc__foot { margin: 26px auto 0; max-width: 620px; font-size: 13px; line-height: 1.5; color: var(--muted); text-align: center; }
+.calc__foot a { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 2px; }
+.calc__foot a:hover { color: var(--accent-strong-hover); }
 
 /* ============================================================
    Compare chart

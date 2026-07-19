@@ -160,7 +160,7 @@
     const t = TYPES[calcType];
     const pct = (bill - t.min) / (t.max - t.min) * 100;
     slider.style.background =
-      `linear-gradient(90deg, var(--accent) ${pct}%, rgba(255,255,255,.18) ${pct}%)`;
+      `linear-gradient(90deg, var(--accent) ${pct}%, var(--slider-track, rgba(22,52,94,.14)) ${pct}%)`;
   }
 
   function setLowNote(bill) {
