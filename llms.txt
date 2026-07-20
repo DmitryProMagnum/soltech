@@ -1,23 +1,23 @@
 # SolTech
 
-> Solar panel installation and maintenance in Dubai under the DEWA Shams Dubai programme. Homeowners and businesses replace grid electricity (0.38-0.46 AED/kWh) with self-generated solar at roughly 0.11 AED/kWh, cutting the DEWA bill for 25 years. All figures on the site are illustrative models; final numbers follow a free engineering assessment.
+> Solar panel installation and maintenance in Dubai under the DEWA Shams Dubai programme. Homeowners and businesses replace grid electricity (0.38-0.46 AED/kWh) with self-generated solar at roughly 0.11 AED/kWh, cutting the DEWA bill for 5 years. All figures on the site are illustrative models; final numbers follow a free engineering assessment.
 
 ## Pages
 
-- [Home](https://soltech.solutions/): Overview, live savings calculator, 25-year cost comparison, model scenarios, and FAQ.
-- [Savings calculator](https://soltech.solutions/calculator.html): Villa/business calculator estimating system size (kWp), investment, payback, 25-year net savings and CO2 avoided from a monthly DEWA bill, with the published methodology.
+- [Home](https://soltech.solutions/): Overview, live savings calculator, 5-year cost comparison, model scenarios, and FAQ.
+- [Savings calculator](https://soltech.solutions/calculator.html): Villa/business calculator estimating system size (kWp), investment, payback, 5-year net savings and CO2 avoided from a monthly DEWA bill, with the published methodology.
 - [Equipment we install](https://soltech.solutions/equipment.html): DEWA Eligible-Equipment-listed panel and inverter brands SolTech installs, selected on ROI, heat tolerance and warranty.
 - [DEWA & Shams Dubai guide](https://soltech.solutions/dewa-guide.html): How Shams Dubai, net metering, eligible equipment and grid-tied systems work, plus tariffs and realistic timelines.
-- [Case studies](https://soltech.solutions/case-studies.html): Illustrative before/after savings stories and a 25-year cost-of-ownership comparison.
+- [Case studies](https://soltech.solutions/case-studies.html): Illustrative before/after savings stories and a 5-year cost-of-ownership comparison.
 - [Maintenance plans](https://soltech.solutions/maintenance.html): Post-connection O&M — fault monitoring is free for life on every install (catches faults, keeps the warranty record). Paid cleaning plans Care from AED 79/month and Complete from AED 159/month (villa); commercial from ~AED 35/kWp/year. Cleaning wins back roughly 2x its cost.
 - [For business](https://soltech.solutions/business.html): Commercial & industrial Energy-as-a-Service — No CapEx, OPEX reduction, fully managed; payment via shared savings, fixed service fee or hybrid.
-- [For residential](https://soltech.solutions/residential.html): Villa & home owners — the ownership track: buy your own rooftop solar under Shams Dubai and cut your DEWA bill for 25 years.
+- [For residential](https://soltech.solutions/residential.html): Villa & home owners — the ownership track: buy your own rooftop solar under Shams Dubai and cut your DEWA bill for 5 years.
 - [For investors](https://soltech.solutions/investors.html): Capital partners fund contracted, asset-backed UAE energy-infrastructure projects for long-term returns. Information only — not an offer or investment advice.
 
 ## Key sections
 
 - [Savings calculator](https://soltech.solutions/#calc): Enter an average monthly DEWA bill to estimate price per kWh, yearly savings, and payback period.
-- [25-year comparison](https://soltech.solutions/#compare): Cumulative cost of electricity, staying on DEWA versus going solar.
+- [5-year comparison](https://soltech.solutions/#compare): Cumulative cost of electricity, staying on DEWA versus going solar.
 - [How it works](https://soltech.solutions/#how): Steps from first calculation to switch-on, typically 45-60 days for a villa.
 - [Model scenarios](https://soltech.solutions/#models): Illustrative villa (12 kWp) and warehouse (300 kWp) examples.
 - [FAQ](https://soltech.solutions/#faq): Selling the property, grid outages, timelines, warranties, and maintenance.
