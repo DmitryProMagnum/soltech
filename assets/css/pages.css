@@ -28,7 +28,7 @@
 .page-hero--video::after { content: none; }
 .page-hero--video .container { z-index: 2; width: 100%; }
 @media (max-width: 560px) { .page-hero--video { min-height: auto; padding: 96px 0 64px; } }
-.page-hero h1 { margin: 16px 0 0; font-size: clamp(32px, 5.4vw, 54px); line-height: 1.04; letter-spacing: -.025em; color: #fff; font-weight: 800; }
+.page-hero h1 { margin: 16px 0 0; font-size: clamp(40px, 7vw, 90px); line-height: 1.02; letter-spacing: -.03em; color: #fff; font-weight: 800; }
 .page-hero .lead { margin: 20px 0 0; color: var(--on-dark-70); max-width: 62ch; }
 .page-hero .eyebrow { color: var(--accent); }
 .page-hero .eyebrow .eyebrow__sq { background: var(--accent); }
